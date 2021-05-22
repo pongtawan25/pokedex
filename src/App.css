@@ -1,0 +1,72 @@
+.header {
+  text-align: center;
+}
+
+.my-pokedex {
+  background-color: aquamarine;
+  width: 1024px;
+  height: 600px;
+}
+
+.poke-list {
+  width: 1024px;
+  height: 600px;
+}
+.poke-list input {
+  background-image: url(./search.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  margin: 10px;
+  width: 996px;
+  height: 40px;
+  font-size: 2rem;
+  font-weight: 100;
+  font-family: cursive;
+}
+.poke-card-list {
+  width: 1024px;
+  height: 600px;
+  overflow-y: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.poke-card-list::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.poke-card-list {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.cards {
+  box-sizing: border-box;
+  background-color: #eee;
+  margin: 20px 10px;
+  width: 1000px;
+  height: 300px;
+  border-radius: 10px;
+  padding: 30px;
+}
+.grid-container-card {
+  display: grid;
+}
+
+.footer {
+  background-color: #eb4d4b;
+  width: 1024px;
+  height: 73px;
+  position: relative;
+}
+.open-list {
+  font-size: 5rem;
+  font-weight: bold;
+  background-color: #eb4d4b;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  position: absolute;
+  top: -30px;
+  left: 462px;
+}

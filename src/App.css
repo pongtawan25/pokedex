@@ -42,14 +42,52 @@
 .cards {
   box-sizing: border-box;
   background-color: #eee;
-  margin: 20px 10px;
+  margin: 10px 10px;
   width: 1000px;
-  height: 300px;
+  height: 320px;
   border-radius: 10px;
   padding: 30px;
 }
 .grid-container-card {
   display: grid;
+  grid-template-rows: repeat(5, 50px);
+  grid-template-columns: 200px 100px 500px 150px;
+}
+.grid-container-card > div {
+  margin: 5px;
+}
+.grid-item-pic {
+  grid-row: 1 / span 5;
+}
+.grid-item-name {
+  grid-column: 2 / span 2;
+}
+.grid-item-add {
+  text-align: end;
+  grid-column: 4 / span 1;
+}
+.grid-item-add button{
+  font-size: 2rem;
+  font-family: Atma;
+  border-style: none;
+  border-width: 0;
+  color: #eb4d4b;
+  cursor: pointer;
+}
+.grid-item-label {
+  grid-column: 2 / span 1;
+}
+.grid-item-scale {
+  grid-column: 3 / span 1;
+  background-color: #bbb;
+  border-radius: 10px;
+}
+.grid-item-cute {
+  grid-column: 2 / span 2;
+}
+.grid-item-cute img {
+  width: 60px;
+  height: 60px;
 }
 
 .footer {

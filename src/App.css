@@ -1,14 +1,83 @@
 .header {
   text-align: center;
+  color: #eb4d4b;
 }
 
 .my-pokedex {
-  background-color: aquamarine;
+  background-color: #fff;
   width: 1024px;
   height: 600px;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.my-pokedex::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.my-pokedex {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.my-card {
+  box-sizing: border-box;
+  background-color: #eee;
+  margin: 10px 10px;
+  width: 492px;
+  height: 225px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.grid-container-my-card {
+  display: grid;
+  grid-template-rows: repeat(5, 40px);
+  grid-template-columns: 150px 60px 230px 10px;
+}
+.grid-container-my-card > div {
+  margin: 3px;
+}
+.grid-item-my-pic {
+  grid-row: 1 / span 5;
+}
+.grid-item-my-pic img{
+  width: 140px;
+}
+.grid-item-my-name {
+  grid-column: 2 / span 2;
+}
+.grid-item-my-add {
+  text-align: end;
+  grid-column: 4 / span 1;
+}
+.grid-item-my-add button {
+  font-size: 2rem;
+  font-family: 'Atma';
+  border-style: none;
+  border-width: 0;
+  color: #eb4d4b;
+  cursor: pointer;
+}
+.grid-item-my-label {
+  grid-column: 2 / span 1;
+}
+.grid-item-my-scale {
+  grid-column: 3 / span 1;
+  background-color: #bbb;
+  border-radius: 10px;
+}
+.grid-item-my-cute {
+  grid-column: 2 / span 2;
+}
+.grid-item-my-cute img {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
 }
 
 .poke-list {
+  background-color: #fff;
+  margin: auto;
   width: 1024px;
   height: 600px;
 }
@@ -26,7 +95,7 @@
 }
 .poke-card-list {
   width: 1024px;
-  height: 600px;
+  height: 520px;
   overflow-y: scroll;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -38,26 +107,29 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
 .cards {
   box-sizing: border-box;
   background-color: #eee;
   margin: 10px 10px;
+  padding: 30px;
   width: 1000px;
   height: 320px;
   border-radius: 10px;
-  padding: 30px;
 }
 .grid-container-card {
   display: grid;
   grid-template-rows: repeat(5, 50px);
   grid-template-columns: 200px 100px 500px 150px;
+  font-size: 1.5rem;
 }
 .grid-container-card > div {
   margin: 5px;
 }
 .grid-item-pic {
   grid-row: 1 / span 5;
+}
+.grid-item-pic img{
+  width: 180px;
 }
 .grid-item-name {
   grid-column: 2 / span 2;
@@ -66,9 +138,9 @@
   text-align: end;
   grid-column: 4 / span 1;
 }
-.grid-item-add button{
+.grid-item-add button {
   font-size: 2rem;
-  font-family: Atma;
+  font-family: 'Atma';
   border-style: none;
   border-width: 0;
   color: #eb4d4b;
@@ -88,6 +160,13 @@
 .grid-item-cute img {
   width: 60px;
   height: 60px;
+  margin: 0 5px;
+}
+
+.scale {
+  height: 100%;
+  background-color: #f0932b;
+  border-radius: 10px;
 }
 
 .footer {
@@ -107,4 +186,28 @@
   position: absolute;
   top: -30px;
   left: 462px;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+.close-list {
+  position: fixed;
+  z-index: 1;
+  left: 46%;
+  top: 10px;
+  font-family: 'Atma';
+  font-size: 2rem;
+  color: #eb4d4b;
+  border-radius: 10px;
+  cursor: pointer;
 }

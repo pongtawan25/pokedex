@@ -1,7 +1,7 @@
 import React from "react";
 import cute from "../cute.png";
 
-function Cards({ item, addCardtoPokedex }) {
+function MyCards({ item, removeCardfromPokedex, index }) {
   const calHp = (hp) => {
     if (hp == "None") {
       return "0%";
@@ -43,32 +43,29 @@ function Cards({ item, addCardtoPokedex }) {
   };
 
   return (
-    <div className="cards">
-      <div className="grid-container-card">
-        <div className="grid-item-pic">
+    <div className="my-card">
+      <div className="grid-container-my-card">
+        <div className="grid-item-my-pic">
           <img src={item.imageUrl} />
         </div>
-        <div className="grid-item-name">{item.name}</div>
-        <div className="grid-item-add">
-          <button onClick={() => addCardtoPokedex(item)}>Add</button>
+        <div className="grid-item-my-name">{item.name}</div>
+        <div className="grid-item-my-add">
+          <button onClick={() => removeCardfromPokedex(index)}>X</button>
         </div>
-        <div className="grid-item-label">HP</div>
-        <div className="grid-item-scale">
+        <div className="grid-item-my-label">HP</div>
+        <div className="grid-item-my-scale">
           <div className="scale" style={{ width: calHp(item.hp) }}></div>
         </div>
-        <div className="grid-item-label">STR</div>
-        <div className="grid-item-scale">
+        <div className="grid-item-my-label">STR</div>
+        <div className="grid-item-my-scale">
           <div className="scale" style={{ width: calStr(item.attacks) }}></div>
         </div>
-        <div className="grid-item-label">WEAK</div>
-        <div className="grid-item-scale">
-          <div
-            className="scale"
-            style={{ width: calWeak(item.weaknesses) }}
-          ></div>
+        <div className="grid-item-my-label">WEAK</div>
+        <div className="grid-item-my-scale">
+          <div className="scale" style={{ width: calWeak(item.weaknesses) }}></div>
         </div>
         <div></div>
-        <div className="grid-item-cute">
+        <div className="grid-item-my-cute">
           <img src={cute} />
           <img src={cute} />
           <img src={cute} />
@@ -78,4 +75,4 @@ function Cards({ item, addCardtoPokedex }) {
   );
 }
 
-export default Cards;
+export default MyCards;

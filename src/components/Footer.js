@@ -1,9 +1,9 @@
 import React from "react";
 
-function Footer() {
+function Footer({ openModal }) {
   return (
     <div className="footer">
-      <button className="open-list" onClick={() => {}}>
+      <button className="open-list" onClick={openModal}>
         +
       </button>
     </div>

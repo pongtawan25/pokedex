@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
 import MyPokedex from "./components/MyPokedex";
 import PokeList from "./components/PokeList";
@@ -20,20 +19,40 @@ const COLORS = {
 };
 
 function App() {
-  const [pokelist, setPokelist] = useState([]);
+  const [myPokedex, setMyPokedex] = useState([]);
+  const [modal, setModal] = useState(false);
 
-  useEffect(() => {
-    axios.get("http://localhost:3030/api/cards").then((res) => {
-      setPokelist(res.data.cards);
-    });
-  }, []);
+  const openModal = () => {
+    setModal(true);
+  };
+
+  const addCardtoPokedex = (card) => {
+    setMyPokedex([...myPokedex, card]);
+  };
+
+  const removeCardfromPokedex = (index) => {
+    var arr = [...myPokedex];
+    if (index !== -1) {
+      arr.splice(index, 1);
+      setMyPokedex([...arr]);
+    }
+  };
+
+  const Modal = () => (
+    <div className="modal" style={{ display: modal ? "block" : "none" }}>
+      <PokeList addCardtoPokedex={addCardtoPokedex} />
+      <button className="close-list" onClick={() => setModal(false)}>
+        Close
+      </button>
+    </div>
+  );
 
   return (
     <div>
       <h1 className="header">My Pokedex</h1>
-      {/* <MyPokedex /> */}
-      <PokeList pokelist={pokelist} />
-      <Footer />
+      <MyPokedex myPokedex={myPokedex} removeCardfromPokedex={removeCardfromPokedex} />
+      <Modal />
+      <Footer openModal={openModal} />
     </div>
   );
 }

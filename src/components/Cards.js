@@ -2,44 +2,60 @@ import React from "react";
 import cute from "../cute.png";
 
 function Cards({ item, addCardtoPokedex }) {
+  let HP = 0;
+  let DM = 0;
+  let WK = 0;
+
   const calHp = (hp) => {
-    if (hp == "None") {
-      return "0%";
-    } else if (hp > 100) {
-      return "100%";
+    if (hp) {
+      if (hp == "None") {
+        HP = 0;
+        return "0%";
+      } else if (hp > 100) {
+        HP = 100;
+        return "100%";
+      } else {
+        HP = hp;
+        return `${hp}%`;
+      }
     } else {
-      return `${hp}%`;
+      HP = 0;
+      return "0%";
     }
   };
 
   const calStr = (atk) => {
-    try {
-      let count = 0;
-      atk.forEach((e) => {
-        count++;
-      });
-      if (count == 1) {
+    if (atk) {
+      if (atk.length == 1) {
+        DM = 50;
         return "50%";
-      } else if (count == 2) {
+      } else if (atk.length == 2) {
+        DM = 100;
         return "100%";
-      } else {
-        return "0%";
       }
-    } catch (error) {}
+    } else {
+      DM = 0;
+      return "0%";
+    }
   };
 
   const calWeak = (weak) => {
-    try {
-      let count = 0;
-      weak.forEach((e) => {
-        count++;
-      });
-      if (count == 1) {
+    if (weak) {
+      if (weak.length == 1) {
+        WK = 100;
         return "100%";
       } else {
+        WK = 0;
         return "0%";
       }
-    } catch (error) {}
+    } else {
+      WK = 0;
+      return "0%";
+    }
+  };
+
+  const calHappiness = () => {
+
   };
 
   return (

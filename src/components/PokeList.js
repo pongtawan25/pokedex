@@ -8,7 +8,7 @@ function PokeList({ addCardtoPokedex }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3030/api/cards?name=${searchItem}`)
+      .get(`http://localhost:3030/api/cards?limit=20&name=${searchItem}&type=${searchItem}`)
       .then((res) => setPokelist(res.data.cards));
   }, [searchItem]);
 

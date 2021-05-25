@@ -6,7 +6,7 @@
 .my-pokedex {
   background-color: #fff;
   width: 1024px;
-  height: 600px;
+  height: 602px;
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
